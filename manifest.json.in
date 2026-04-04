@@ -1,0 +1,15 @@
+{
+    "name": "tflstatus.archie3d",
+    "description": "Transport For London (Tfl) status",
+    "architecture": "$ENV{ARCH}",
+    "title": "Tfl Status",
+    "hooks": {
+        "tflstatus": {
+            "apparmor": "tflstatus.apparmor",
+            "desktop":  "tflstatus.desktop"
+        }
+    },
+    "version": "1.0.0",
+    "maintainer": "Arthur Benilov <arthur.benilov@gmail.com>",
+    "framework" : "$ENV{CLICK_FRAMEWORK}"
+}

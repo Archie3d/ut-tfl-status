@@ -1,0 +1,9 @@
+<RCC>
+    <qresource prefix="/">
+        <file>Main.qml</file>
+        <file>http.js</file>
+        <file>tfl.js</file>
+        <file>components/LineStatusListItem.qml</file>
+        <file>components/LineStatusDialog.qml</file>
+    </qresource>
+</RCC>
