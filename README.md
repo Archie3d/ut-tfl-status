@@ -1,9 +1,11 @@
 # Tfl Status
 
-Transport For London (Tfl) status
+Transport For London (Tfl) status app for Ubuntu Touch
 
-## License
+## Build
+Install [clickable](https://clickable-ut.dev/en/latest/install.html).
 
-Copyright (C) 2026  Arthur Benilov
-
-Licensed under the MIT license.
+Install and run on a device:
+```bash
+clickable
+```
