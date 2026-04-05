@@ -1,4 +1,5 @@
 # Tfl Status
+[![OpenStore](https://open-store.io/badges/en_US.png)](https://open-store.io/app/tflstatus.archie3d)
 
 Transport For London (Tfl) simple status reports for Ubuntu Touch.
 
