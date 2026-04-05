@@ -103,5 +103,7 @@ function getLinesStatusRecursive(modesList, status, data, callback) {
 }
 
 function getAllLinesStatus(callback) {
-    getLinesStatusRecursive(MODE_ALL, OK, [], callback);
+    // Required since the recursive call depopulates the modes array
+    var modes = MODE_ALL.slice();
+    getLinesStatusRecursive(modes, OK, [], callback);
 }
