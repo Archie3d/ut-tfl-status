@@ -41,9 +41,11 @@ ListItem {
                 width: parent.width
                 text: lineName
                 font.bold: true
+                color: theme.palette.normal.baseText
             }
             Text {
                 text: lineStatus
+                color: theme.palette.normal.baseText
             }
         }
 
@@ -54,6 +56,7 @@ ListItem {
         Icon {
             width: units.gu(2)
             name: "dialog-warning-symbolic"
+            color: theme.palette.normal.activity
             visible: lineStatusSeverity < 10
         }
     }

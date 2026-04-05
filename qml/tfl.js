@@ -9,11 +9,11 @@ const colors = {
     "Central":              "#DC241F",
     "Circle":               "#FFD329",
     "District":             "#007D32",
-    "Elizabeth":            "#6950A1",
+    "Elizabeth line":       "#6950A1",
     "Hammersmith & City":   "#F4A9BE",
     "Jubilee":              "#A1A5A7",
     "Metropolitan":         "#9B0058",
-    "Northern":              "#000000",
+    "Northern":             "#000000",
     "Piccadilly":           "#0019A8",
     "Victoria":             "#0098D8",
     "Waterloo & City":      "#93CEBA",
@@ -30,6 +30,9 @@ const colors = {
 const OK = 200;
 const MODE_TUBE = "tube";
 const MODE_OVERGROUND = "overground";
+const MODE_DLR = "dlr";
+const MODE_ELIZABETH = "elizabeth-line";
+const MODE_ALL = [MODE_TUBE, MODE_ELIZABETH, MODE_OVERGROUND, MODE_DLR];
 
 function getColorForLine(name) {
 
@@ -81,15 +84,24 @@ function getLinesStatus(mode, callback) {
     });
 }
 
-function getAllLinesStatus(callback) {
-    getLinesStatus(MODE_TUBE, function(status, data) {
-        if (status === OK) {
-            getLinesStatus(MODE_OVERGROUND, function(status, overgroundData) {
-                data = data.concat(overgroundData);
-                callback(status, data);
-            });
-        } else {
-            callback(status, data);
+function getLinesStatusRecursive(modesList, status, data, callback) {
+    if (modesList.length === 0) {
+        callback(status, data);
+        return
+    }
+
+    const mode = modesList.shift();
+
+    getLinesStatus(mode, function(s, d) {
+        if (s === OK) {
+            data = data.concat(d);
         }
+
+        getLinesStatusRecursive(modesList, s, data, callback);
     });
+
+}
+
+function getAllLinesStatus(callback) {
+    getLinesStatusRecursive(MODE_ALL, OK, [], callback);
 }
