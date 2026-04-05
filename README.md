@@ -8,12 +8,17 @@ Transport For London (Tfl) simple status reports for Ubuntu Touch.
 </p>
 
 ## Build
-Install [clickable](https://clickable-ut.dev/en/latest/install.html). Then run it with the device connected to build and install on the device:
+Install [clickable](https://clickable-ut.dev/en/latest/install.html). Then run it with a device connected to build and install:
 ```bash
 clickable
 ```
 
-To test on desktop:
+To test on a desktop:
 ```bash
 clickable desktop
+```
+
+Edit with QtCreator:
+```bash
+clickable ide
 ```
